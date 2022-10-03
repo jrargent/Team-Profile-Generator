@@ -30,7 +30,9 @@ return inquirer.prompt([
 .then(( { name, id, email }) => {
     this.employee = new Employee(name, id, email);
     console.table(this.employee);
+    
 })
+// will need to prompt ask whether employee is manager, engineer, or intern
 }
 
 promptUser();
