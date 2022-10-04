@@ -46,43 +46,44 @@ const promptUser = () => {
 .then(( { managerName, id, email, officeNumber }) => {
     this.manager = new Manager(managerName, id, email, officeNumber);
     console.table(this.manager);
+
+    promptUserAgain();
+})
+};
+
+
+const promptUserAgain = () => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'role',
+            message: "Which type of team member would you like to add? (use arrow keys)",
+            choices: ['Engineer', 'Intern', "I do not want to add any more team members"]
+        }
+    ])
+    .then(( { role }) => {
+        if(role === 'Engineer') {
+            // run engineer prompt
+            console.log(role);
+        }
+        else if(role === 'Intern') {
+            // run intern prompt
+            console.log(role);
+        }
+        else {
+            // end prompt and run HTML generation 
+            //(will be a function which points to a template)
+        }
     })
 };
-// .then () package into the new Manager object?
-//  return promptUserAgain()
 
-// the prompt for this should only ask if adding an engineer or intern, or
-// 'I don't want to add any more team members."
+/*
+TODO: create prompt for Engineer ?s, for Intern ?s
+TODO: create HTML template, css template
+TODO: create function for website generation
 
+*/
 
-
-// return inquirer.prompt([
-
-// {
-//     type: 'list',
-//     name: 'role',
-//     message: 'What is the employee role?',
-//     choices: ['Engineer', 'Intern', "I do not want to add any more team members"]
-// }
-
-//     then(({ role }) => {
-//     if(role === 'Manager') {
-//         // function to prompt Manager ?s
-//     }
-
-//      {
-//         
-//     },
-//     {
-//         type: 'text',
-//         name: "id",
-//         message: 'What is the employee ID?'
-//     },
-//     {
-//         type: 'text',
-//         name: 'email',
-//         message: 'What is the employee email?'
-//     }])
 // .then(( { name, id, email, role}) => {
 //     this.employee = new Employee(name, id, email);
 //     console.table(this.employee);
@@ -91,9 +92,7 @@ const promptUser = () => {
 //     console.table(this.manager);
 // })
 
-// if user selects manager, then prompt the ask for office number
-//if user selected engineer, then prompt the ask for GitHub
-// if user selects intern, then prompt the ask for school
+
 
 
 promptUser();
