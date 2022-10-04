@@ -27,13 +27,22 @@ return inquirer.prompt([
         type: 'text',
         name: 'email',
         message: 'What is the employee email?'
+    },
+
+    {
+        type: 'list',
+        name: 'role',
+        message: 'What is the employee role?'
+        //choices: Manager, Engineer, Intern
     }])
 .then(( { name, id, email }) => {
     this.employee = new Employee(name, id, email);
     console.table(this.employee);
-    
+    // add if statements here for role?
 })
-// will need to prompt ask whether employee is manager, engineer, or intern
+// if user selects manager, then prompt the ask for office number
+//if user selected engineer, then prompt the ask for GitHub
+// if user selects intern, then prompt the ask for school
 }
 
 promptUser();
