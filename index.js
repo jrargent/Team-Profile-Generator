@@ -4,13 +4,18 @@ const Manager = require('./lib/Manager');
 
 
 
-// function Profile() {
-//     this.employee;
-// };
+/* likely need to ask what the role is first, this will then determine the questions asked
+ first question asked will be who is manager. 
+    This should only be asked once because there is likely to be just 
+        one manager on a team
 
-// Profile.prototype.initializeProfile = function() {
-//     this.employee.push(new Employee());
-//     this.currentEmployee = this.employee[0];
+  then once all of manager ?s are asked, will run prompt for  
+ "Which type of team member would you like to add? (use arrow keys)"
+ Engineer
+ Intern
+
+
+*/
 const promptUser = () => {
 return inquirer.prompt([
     {
