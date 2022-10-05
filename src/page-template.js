@@ -1,19 +1,53 @@
-const generateManager = managerInfo => {
+
+
+const generateEngineer = engineerData => {
+ 
+  
     return `
-        <div class="card">
+        ${engineerData.forEach(( {name, id, email, github }) => {
+        return `
+            <div class="card">
             <div class="card-header">
-                <h2 class="card-title">${managerInfo.name}</h2>
+                <h2 class="card-title">${name}</h2>
                 <h3 class="card-text"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">Id: ${managerInfo.id}</li>
-                    <li class="list-group-item">Email: <a href="mailto: ${managerInfo.email}">${managerInfo.email}</a></li>
-                    <li class="list-group-item">Office Number: ${managerInfo.officeNumber}</li>
+                    <li class="list-group-item">Id: ${id}</li>
+                    <li class="list-group-item">Email: <a href="mailto: ${email}">${email}</a></li>
+                    <li class="list-group-item">GitHub: ${github}</li>
                 </ul>
             </div>
-        </div>
-    `
+            </div>
+          `
+        }
+        )}
+    `    
+};
+         
+const generateIntern = internData => {
+ 
+  
+    return `
+        ${internData.forEach(( {name, id, email, school }) => {
+        return `
+            <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">${name}</h2>
+                <h3 class="card-text"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">Id: ${id}</li>
+                    <li class="list-group-item">Email: <a href="mailto: ${email}">${email}</a></li>
+                    <li class="list-group-item">School: ${school}</li>
+                </ul>
+            </div>
+            </div>
+          `
+        }
+        )}
+    `    
 };
 
 
@@ -22,12 +56,16 @@ const generateManager = managerInfo => {
 
 
 
+/*
+Need to access individual objects in the array, based on name of object. 
+ex. [Engineer { name: 'john', id: 12, email: 'example@example.com', github: 'johndoe42" } ]
+
+Need to take the whole Engineer object and use it in a 
+*/
 
 
-
-module.exports = templateData => {
-    // destructure page data by section
-    const { Manager, Engineer, Intern } = templateData;
+module.exports = function(managerData, engineerData, internData) {
+     
   
     return `
     <!DOCTYPE html>
@@ -57,9 +95,22 @@ module.exports = templateData => {
             <div class="row">
                 <div class="col d-flex justify-content-around mt-5">
                 
-                ${generateManager(Manager)}
-                ${generateEngineer(Engineer)}
-                ${generateIntern(Intern)}
+                <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">${managerData.name}</h2>
+                    <h3 class="card-text"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Id: ${managerData.id}</li>
+                        <li class="list-group-item">Email: <a href="mailto: ${managerData.email}">${managerData.email}</a></li>
+                        <li class="list-group-item">Office Number: ${managerData.officeNumber}</li>
+                    </ul>
+                </div>
+                </div>
+
+                ${generateEngineer(engineerData)}
+                ${generateIntern(internData)}
 
                 </div>
             </div>
@@ -69,4 +120,5 @@ module.exports = templateData => {
     </html>
     
 `
-}
+
+};
