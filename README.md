@@ -1,7 +1,7 @@
 # Team-Profile-Generator
 
 ## Description
-This is the Module 10 class challenge
+This is a Team Profile Website generator that is meant to help the user quickly generate a webpage listing team members and their information. It uses node.js to prompt the user to answer questions in the terminal. The program then writes the user's inputs into a template and creates an HTML file.
 
 ## Link to Repo
 
