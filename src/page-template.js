@@ -1,7 +1,6 @@
 
 
 const generateEngineer = engineerData => {
- console.log(engineerData);
   
     return `
         ${engineerData.map(( {name, id, email, github }) => {
