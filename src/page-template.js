@@ -1,7 +1,9 @@
 
 
 const generateEngineer = engineerData => {
-  
+  if (!engineerData) {
+    return '';
+  }
     return `
         ${engineerData.map(( {name, id, email, github }) => {
         return `
@@ -14,7 +16,7 @@ const generateEngineer = engineerData => {
                 <ul class="list-group">
                     <li class="list-group-item">Id: ${id}</li>
                     <li class="list-group-item">Email: <a href="mailto: ${email}">${email}</a></li>
-                    <li class="list-group-item">GitHub: ${github}</li>
+                    <li class="list-group-item">GitHub: <a href="https://github.com/${github}" target="blank">${github}</a></li>
                 </ul>
             </div>
             </div>
@@ -25,7 +27,9 @@ const generateEngineer = engineerData => {
 };
          
 const generateIntern = internData => {
- 
+    if (!internData) {
+        return '';
+      }
   
     return `
         ${internData.map(( {name, id, email, school }) => {
