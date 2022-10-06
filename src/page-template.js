@@ -1,15 +1,15 @@
 
 
 const generateEngineer = engineerData => {
- 
+ console.log(engineerData);
   
     return `
-        ${engineerData.forEach(( {name, id, email, github }) => {
+        ${engineerData.map(( {name, id, email, github }) => {
         return `
             <div class="card">
             <div class="card-header">
                 <h2 class="card-title">${name}</h2>
-                <h3 class="card-text"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+                <h3 class="card-text"><i class="fas fa-laptop-code mr-2"></i>Engineer</h3>
             </div>
             <div class="card-body">
                 <ul class="list-group">
@@ -29,12 +29,12 @@ const generateIntern = internData => {
  
   
     return `
-        ${internData.forEach(( {name, id, email, school }) => {
+        ${internData.map(( {name, id, email, school }) => {
         return `
             <div class="card">
             <div class="card-header">
                 <h2 class="card-title">${name}</h2>
-                <h3 class="card-text"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+                <h3 class="card-text"><i class="fas fa-graduation-cap mr-2"></i>Intern</h3>
             </div>
             <div class="card-body">
                 <ul class="list-group">
@@ -65,7 +65,6 @@ Need to take the whole Engineer object and use it in a
 
 
 module.exports = function(managerData, engineerData, internData) {
-     
   
     return `
     <!DOCTYPE html>
@@ -97,14 +96,14 @@ module.exports = function(managerData, engineerData, internData) {
                 
                 <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">${managerData.name}</h2>
+                    <h2 class="card-title">${managerData[0].name}</h2>
                     <h3 class="card-text"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">Id: ${managerData.id}</li>
-                        <li class="list-group-item">Email: <a href="mailto: ${managerData.email}">${managerData.email}</a></li>
-                        <li class="list-group-item">Office Number: ${managerData.officeNumber}</li>
+                        <li class="list-group-item">Id: ${managerData[0].id}</li>
+                        <li class="list-group-item">Email: <a href="mailto: ${managerData[0].email}">${managerData[0].email}</a></li>
+                        <li class="list-group-item">Office Number: ${managerData[0].officeNumber}</li>
                     </ul>
                 </div>
                 </div>
